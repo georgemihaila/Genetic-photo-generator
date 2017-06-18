@@ -1,0 +1,15 @@
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\bin\Debug\Genetic photo generator.exe.config
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\bin\Debug\Genetic photo generator.exe
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\bin\Debug\Genetic photo generator.pdb
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\MainWindow.g.cs
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\App.g.cs
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\Genetic photo generator_MarkupCompile.cache
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\Genetic photo generator_MarkupCompile.lref
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\MainWindow.baml
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\Genetic photo generator.g.resources
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\Genetic_photo_generator.Properties.Resources.resources
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\Genetic photo generator.csproj.GenerateResource.Cache
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\Genetic photo generator.exe
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\Genetic photo generator.pdb
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\bin\Debug\source.jpg
+C:\Users\georg\OneDrive\Documents\Visual Studio 2017\Projects\Genetic programs\Genetic photo generator\Genetic photo generator\obj\Debug\Genetic photo generator.csprojResolveAssemblyReference.cache

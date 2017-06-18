@@ -1,0 +1,67 @@
+﻿<Window x:Class="Genetic_photo_generator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Genetic_photo_generator"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Genetic photo generator"
+        Height="630.55"
+        Width="462.025"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid x:Name="LayoutRoot">
+        <TextBlock x:Name="sourceImageTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Source image:" FontWeight="Bold" VerticalAlignment="Top"/>
+        <Border x:Name="sourceImageBorder" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="200" Margin="10,31,0,0" VerticalAlignment="Top" Width="200"/>
+        <Image x:Name="sourceImage" HorizontalAlignment="Left" Height="200" Margin="10,31,0,0" VerticalAlignment="Top" Width="200" Cursor="AppStarting"  Loaded="sourceImage_Loaded" MouseLeftButtonDown="sourceImage_MouseLeftButtonDown"/>
+        <TextBlock x:Name="generatedImageTextBlock" HorizontalAlignment="Left" Margin="229,10,0,0" TextWrapping="Wrap" Text="Generated image:" FontWeight="Bold" VerticalAlignment="Top"/>
+        <Border x:Name="generatedImageBorder" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="200" Margin="229,31,0,0" VerticalAlignment="Top" Width="200"/>
+        <Image x:Name="generatedImage" HorizontalAlignment="Left" Height="200" Margin="229,31,0,0" VerticalAlignment="Top" Width="200"/>
+        <Grid x:Name="threadsGrid" HorizontalAlignment="Left" Height="61" Margin="10,236,0,0" VerticalAlignment="Top" Width="181">
+            <TextBlock x:Name="numberOfThreadsTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Number of threads:" VerticalAlignment="Top"/>
+            <RadioButton x:Name="threadButton1" Content="1" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" IsChecked="True"/>
+            <RadioButton x:Name="threadButton2" Content="2" HorizontalAlignment="Left" Margin="40,31,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="threadButton3" Content="4" HorizontalAlignment="Left" Margin="70,31,0,0" IsChecked="True" VerticalAlignment="Top"/>
+            <RadioButton x:Name="threadButton4" Content="8" HorizontalAlignment="Left" Margin="100,31,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="threadButton5" Content="16" HorizontalAlignment="Left" Margin="130,31,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <CheckBox x:Name="resizeCheckBox" Content="Resize image to" Loaded="resizeCheckBox_Loaded" HorizontalAlignment="Left" Margin="19,302,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <xctk:IntegerUpDown x:Name="widthUpDown" Margin="127,293,276,269" Value="200"/>
+        <TextBlock x:Name="resizeTextBlock" HorizontalAlignment="Left" Margin="180,301,0,0" TextWrapping="Wrap" Text="x" VerticalAlignment="Top"/>
+        <xctk:IntegerUpDown x:Name="heightUpDown" Margin="196,293,207,269" Value="200"/>
+        <Grid x:Name="stopGrid" HorizontalAlignment="Left" Height="96" Margin="22,338,0,0" VerticalAlignment="Top" Width="227">
+            <RadioButton x:Name="stopRadioButton1" Content="Stop after" Loaded="stopRadioButton1_Loaded" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+            <xctk:IntegerUpDown x:Name="generationsUpDown" Margin="76,-8,104,74" Value="20"/>
+            <TextBlock x:Name="generationsTextBlock" HorizontalAlignment="Left" Margin="128,0,0,0" TextWrapping="Wrap" Text="generations" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,37,0,0" TextWrapping="Wrap" Text="Generation size:" VerticalAlignment="Top"/>
+            <xctk:IntegerUpDown x:Name="generationSizeUpDown" Margin="99,29,81,36" Value="15"/>
+            <RadioButton x:Name="accuracyRadioButton" Content="Stop at" Loaded="accuracyRadioButton_Loaded" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top"/>
+            <xctk:IntegerUpDown x:Name="accuracyUpDown" IsEnabled="False" Margin="62,62,118,3" Value="20"/>
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="114,70,0,0" TextWrapping="Wrap" Text="% accuracy" VerticalAlignment="Top"/>
+        </Grid>
+        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Margin="22,535,0,0" VerticalAlignment="Top" Width="75" Click="startButton_Click"/>
+        <Button x:Name="stopButton" Content="Stop" HorizontalAlignment="Left" Margin="105,535,0,0" IsEnabled="False" VerticalAlignment="Top" Width="75" Click="stopButton_Click"/>
+
+        <ScrollViewer HorizontalAlignment="Left" Height="283" Margin="254,267,0,0" VerticalAlignment="Top" Width="175">
+            <Canvas x:Name="threadCanvas" Height="Auto" Width="Auto">
+                <TextBlock x:Name="thread1TextBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Thread #1" VerticalAlignment="Top" Canvas.Top="10" FontWeight="Bold" Canvas.Left="10"/>
+                <ProgressBar x:Name="thread1ProgressBar" HorizontalAlignment="Left" Height="10" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Canvas.Left="10" Canvas.Top="31"/>
+                <TextBlock x:Name="thread1TextBlock2" Canvas.Left="115" TextWrapping="Wrap" Text="0%" Canvas.Top="28"/>
+                <TextBlock x:Name="thread1TextBlock3" Canvas.Left="10" TextWrapping="Wrap" Text="Stamina: 0" Canvas.Top="46"/>
+                <TextBlock x:Name="thread2TextBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Thread #2" VerticalAlignment="Top" Canvas.Top="67" FontWeight="Bold" Canvas.Left="10"/>
+                <ProgressBar x:Name="thread2ProgressBar" HorizontalAlignment="Left" Height="10" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Canvas.Left="10" Canvas.Top="88"/>
+                <TextBlock x:Name="thread2TextBlock2" Canvas.Left="115" TextWrapping="Wrap" Text="0%" Canvas.Top="85"/>
+                <TextBlock x:Name="thread2TextBlock3" Canvas.Left="10" TextWrapping="Wrap" Text="Stamina: 0" Canvas.Top="103"/>
+                <TextBlock x:Name="thread3TextBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Thread #3" VerticalAlignment="Top" Canvas.Top="124" FontWeight="Bold" Canvas.Left="10"/>
+                <ProgressBar x:Name="thread3ProgressBar" HorizontalAlignment="Left" Height="10" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Canvas.Left="10" Canvas.Top="88"/>
+                <TextBlock x:Name="thread3TextBlock2" Canvas.Left="115" TextWrapping="Wrap" Text="0%" Canvas.Top="85"/>
+                <TextBlock x:Name="thread3TextBlock3" Canvas.Left="10" TextWrapping="Wrap" Text="Stamina: 0" Canvas.Top="103"/>
+            </Canvas>
+        </ScrollViewer>
+        <CheckBox x:Name="top3rdCheckBox" Content="Skip top 30%" HorizontalAlignment="Left" Margin="23,439,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="perfectsCheckBox" Content="No perfect mutations" HorizontalAlignment="Left" Margin="23,459,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="23,479,0,0" TextWrapping="Wrap" Text="Perfect mutation chance:" VerticalAlignment="Top"/>
+        <Slider x:Name="mutationChanceSlider" HorizontalAlignment="Left" Margin="23,500,0,0" VerticalAlignment="Top" Minimum="0" Maximum="50" Width="131"/>
+    </Grid>
+</Window>
